@@ -22,6 +22,12 @@ class TestMiClase(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.obj.ObtieneValencia("12a3")
 
+    def test_obtiene_valencia_valor_cero(self):
+        self.assertEqual(self.obj.ObtieneValencia(0), 0)
+
+    def test_obtiene_valencia_numero_sin_par_puro(self):
+        self.assertEqual(self.obj.ObtieneValencia(2468), 0)
+    
     # ---------- DivisibleTempo ----------
 
     def test_divisible_tempo_numero_compuesto(self):
@@ -30,6 +36,13 @@ class TestMiClase(unittest.TestCase):
     def test_divisible_tempo_tipo_invalido_lanza_type_error(self):
         with self.assertRaises(TypeError):
             self.obj.DivisibleTempo("abc")
+
+    def test_divisible_tempo_entrada_cero(self):
+        self.assertEqual(self.obj.DivisibleTempo(0), [])
+
+    def test_divisible_tempo_entrada_vacia_lanza_type_error(self):
+        with self.assertRaises(TypeError):
+            self.obj.DivisibleTempo(None)
 
     # ---------- ObtieneMasBailable ----------
 
@@ -41,6 +54,16 @@ class TestMiClase(unittest.TestCase):
 
     def test_obtiene_mas_bailable_lista_vacia_devuelve_none(self):
         self.assertIsNone(self.obj.ObtieneMasBailable([]))
+
+    def test_obtiene_mas_bailable_valores_no_numericos_lanza_type_error(self):
+        with self.assertRaises(TypeError):
+            self.obj.ObtieneMasBailable([0.8, "a", 0.7])    
+
+    def test_obtiene_mas_bailable_todos_iguales(self):
+        self.assertEqual(
+            self.obj.ObtieneMasBailable([0.8, 0.8, 0.8]),
+            0.8
+        )
 
     # ---------- VerificaListaCanciones ----------
 
@@ -58,6 +81,16 @@ class TestMiClase(unittest.TestCase):
             )
         )
 
+    def test_verifica_que_sea_lista(self):
+        self.assertIsInstance(
+            self.obj.listaCanciones,
+            list
+        )
+
+    def test_verifica_lista_vacia(self):
+        self.assertTrue(
+            self.obj.VerificaListaCanciones([])
+    )
 
 if __name__ == "__main__":
     unittest.main()
