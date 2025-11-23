@@ -1,9 +1,13 @@
 name: Python tests
 
 on:
-  pull_request:
-    branches: [ develop ]
+  push:
+    branches:
+      - ci/workflow-tests
 
+  pull_request:
+    branches:
+      - develop
 jobs:
   test:
     runs-on: ubuntu-latest
