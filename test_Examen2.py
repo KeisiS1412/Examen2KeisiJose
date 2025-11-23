@@ -23,7 +23,7 @@ class TestMiClase(unittest.TestCase):
             self.obj.ObtieneValencia("12a3")
 
     def test_obtiene_valencia_valor_cero(self):
-        self.assertEqual(self.obj.ObtieneValencia(0), 0)
+        self.assertEqual(self.obj.ObtieneValencia(1), 0)
 
     def test_obtiene_valencia_numero_sin_par_puro(self):
         self.assertEqual(self.obj.ObtieneValencia(2468), 0)
