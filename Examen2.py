@@ -1,5 +1,5 @@
 class MiClase:
-    def _init_(self, Valencia, Tempo, Tonos, listaCanciones, listaBailabilidad):
+    def __init__(self, Valencia, Tempo, Tonos, listaCanciones, listaBailabilidad):
         self.Valencia = Valencia
         self.Tempo = Tempo
         self.Tonos = Tonos
