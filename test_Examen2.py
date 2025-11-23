@@ -92,5 +92,12 @@ class TestMiClase(unittest.TestCase):
             self.obj.VerificaListaCanciones([])
     )
 
+    # ---------- Encuentra ----------
+
+    def test_encuentra_elemento_buscado_esta(self):
+        self.assertTrue(
+            self.obj.Encuentra([1, 2, 3, 4, 5], 3)
+        )
+
 if __name__ == "__main__":
     unittest.main()
